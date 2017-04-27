@@ -16,6 +16,11 @@ class file_operations():
         data = pd.read_csv(url, header=None)
         return data
 
+    def write_my_file(self, array):
+        pass
+
+    def read_my_file(self, file = "theFile.txt"):
+        pass
 
 if __name__ == '__main__':
     print("Direct access to " + os.path.basename(__file__))
