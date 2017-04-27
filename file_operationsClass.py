@@ -11,10 +11,21 @@ class file_operations():
     def __init__(self):
         pass
 
-    def getData(self, url):
-        """Gets the data from the specified URL"""
-        data = pd.read_csv(url, header=None)
-        return data
+    def write_my_file(self, array, fileName = "theFile.txt"):
+        file = open(fileName, "w")
+        file.write(str(array))
+        return 0
+
+    def read_my_file(self, fileName = "theFile.txt"):
+        fo = open(fileName, "r")
+        line = fo.readlines()
+        fo.close()
+        strLine = line[0].replace("[", "")
+        strLine = strLine.replace("]", "")
+        print(strLine)
+
+        newArray = np.asarray(line)
+        return newArray
 
 
 if __name__ == '__main__':
