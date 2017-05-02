@@ -8,6 +8,10 @@
 import os
 import numpy as np
 
+def function8(X, A):
+    print("\nfunction8(X,A)")
+    print("Vector X: ", X)
+    print("Matrix A:\n ", A)
 
 def main():
     # 2. Create matrix A with size (3,5) containing random numbers
@@ -28,6 +32,21 @@ def main():
 
     # 6. Find the minimum value in column 1 of matrix B
     print("Minimum col 1: \n", np.amin(B[:,1]))
+
+    # 7. Find the minimum and maximum values for the entire matrix A
+    print("Maximum value in matrix A: \n", np.amax(A))
+    print("Minimum value in matrix A: \n", np.amin(A))
+
+    # 8. Create Vector X (an array) with 4 random numbers
+    X = np.random.rand(4)
+    print("Vector X: ", X)
+
+    # 9. Create a function and pass Vector X and matrix A in it
+    function8(X, A)
+
+    # 15. Display a text on the screen: ‘Name is done with HW2‘, but pass your ‘Name’ as a string variable
+    Name = "Javier Vazquez"
+    print(Name + " is done with HW2")
 
 if __name__ == '__main__':
     print(os.path.basename(__file__))
