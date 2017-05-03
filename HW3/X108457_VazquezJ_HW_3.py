@@ -59,11 +59,10 @@ def main():
 
     # 11. Plot the sin of D, in the (2,1,1) location of the figure
     plb.subplot(2, 1, 1)
-    plb.plot(plb.sin(D), color = "r")
-
+    plb.plot(plb.sin(D), color = "r", label= "Sin")
 
     # 12. Overlay a plot of cos using D, with different color, thickness and type of line
-    plb.plot(plb.cos(D), color = "b", linewidth =2, linestyle= "-.")
+    plb.plot(plb.cos(D), color = "b", linewidth =2, linestyle= "-.", label="Cos")
 
     # 13. Create some space on top and bottom of the plot (on the y axis) and show the grid
     plb.ylim(min(plb.cos(D))-.5, max(plb.cos(D))+.5)
@@ -71,10 +70,19 @@ def main():
 
     # 14. Specify the following: title, Y-axis label and legend to fit in the best way
     plb.title("Sin(D) and Cos(D)")
+    plb.legend()
+    plb.ylabel("Y-axis")
+    plb.legend(loc="upper right")
+
+    # 15. Plot the tan of D, in location (2,1,2) with grid showing, X-axis label, Y-axis label
+    # and legend on top right
+    plb.subplot(2, 1, 2)
+    plb.plot(plb.tan(D), color="g", label="Tan")
+    plb.ylabel("Y-axis")
+    plb.xlabel("X-axis")
+    plb.legend(loc="upper right")
 
     plb.show()
-
-
 
 if __name__ == '__main__':
     print(os.path.basename(__file__))
