@@ -1,3 +1,6 @@
+# Javier Vazquez
+# Final Project
+# Date: May 16 ,2017
 import os
 import pandas as pd
 import numpy as np
@@ -18,19 +21,9 @@ class dataWrangler():
         return data
     
     def sortDataPerLabels(self, data, *args):
-        labels = countPerLabel = []
-        if len(args) == 1:
-            labels = [np.unique(data[:, arg]) for arg in args]
-            countPerLabel = [data[np.where(data == label), :] for label in labels[0]]
-        elif len(args) == 2:
-            labels = [np.unique(data[:,arg]) for arg in args]
-            income = [data[np.where(data == label), :] for label in labels[0]]
-            countPerLabel = [income[i][0][np.where(income[i][0] == labels[1][j]), :] for i in range(len(labels[0])) for j in range(len(labels[1]))]
-        elif len(args) == 3:
-            labels = [np.unique(data[:,arg]) for arg in args]
-            income = [data[np.where(data == label), :] for label in labels[0]]
-            sex = [income[i][0][np.where(income[i][0] == labels[1][j]), :] for i in range(len(labels[0])) for j in range(len(labels[1]))]
-            countPerLabel = [sex[i][0][np.where(sex[i][0] == labels[2][j]), :] for i in range(len(sex)) for j in range(len(labels[2]))]
+        labels = [np.unique(data[:,arg]) for arg in args]
+        income = [data[np.where(data == label), :] for label in labels[0]]
+        countPerLabel = [income[i][0][np.where(income[i][0] == labels[1][j]), :] for i in range(len(labels[0])) for j in range(len(labels[1]))]
         return labels, countPerLabel
 
     def convertDataPerLabel(self, data):
